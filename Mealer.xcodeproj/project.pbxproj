@@ -17,6 +17,7 @@
 		B7FFB4CE288E10A6002DDCC5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FFB4CD288E10A6002DDCC5 /* TabBarViewController.swift */; };
 		B7FFB4D0288E1477002DDCC5 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FFB4CF288E1477002DDCC5 /* ListViewController.swift */; };
 		B7FFB4D2288E1480002DDCC5 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FFB4D1288E1480002DDCC5 /* RecipesViewController.swift */; };
+		B7FFB4D4288E6104002DDCC5 /* DishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FFB4D3288E6104002DDCC5 /* DishViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B7FFB4CD288E10A6002DDCC5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B7FFB4CF288E1477002DDCC5 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B7FFB4D1288E1480002DDCC5 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
+		B7FFB4D3288E6104002DDCC5 /* DishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				B7FFB4CD288E10A6002DDCC5 /* TabBarViewController.swift */,
 				B7FFB4CF288E1477002DDCC5 /* ListViewController.swift */,
 				B7FFB4D1288E1480002DDCC5 /* RecipesViewController.swift */,
+				B7FFB4D3288E6104002DDCC5 /* DishViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			files = (
 				B72AEA69287E740F0005D1AF /* WelcomeViewController.swift in Sources */,
 				B7FFB4D2288E1480002DDCC5 /* RecipesViewController.swift in Sources */,
+				B7FFB4D4288E6104002DDCC5 /* DishViewController.swift in Sources */,
 				B7905B06287FC12D0014871B /* PlannerViewController.swift in Sources */,
 				B7FFB4D0288E1477002DDCC5 /* ListViewController.swift in Sources */,
 				B72AEA65287E740F0005D1AF /* AppDelegate.swift in Sources */,
