@@ -21,6 +21,7 @@ class RecipesViewController: UITableViewController {
         
         searchBar.barTintColor = UIColor(named: "DarkBlue")
         searchBar.searchTextField.backgroundColor = .white
+        searchBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,7 +42,7 @@ class RecipesViewController: UITableViewController {
     // MARK: - Add Recipes
     
     @objc func addRecipe() {
-        
+        print("add recipe pressed")
     }
     
     // MARK: - Table View Data Source Methods
@@ -80,8 +81,9 @@ class RecipesViewController: UITableViewController {
 // MARK: - SearchBar Delegate Methods
 
 extension RecipesViewController: UISearchBarDelegate {
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        recipes = recipes?.filter("name CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "title", ascending: true)
+        recipes = recipes?.filter("name CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "name", ascending: true)
         tableView.reloadData()
     }
     
