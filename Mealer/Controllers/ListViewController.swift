@@ -19,5 +19,6 @@ class ListViewController: UITableViewController {
         
         let tabBarVC = tabBarController as! TabBarViewController
         tabBarVC.setNavBarTitle(title: "Shopping List")
+        tabBarVC.navigationItem.rightBarButtonItem = nil
     }
 }

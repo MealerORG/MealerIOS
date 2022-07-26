@@ -18,6 +18,9 @@
 		B7FFB4D0288E1477002DDCC5 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FFB4CF288E1477002DDCC5 /* ListViewController.swift */; };
 		B7FFB4D2288E1480002DDCC5 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FFB4D1288E1480002DDCC5 /* RecipesViewController.swift */; };
 		B7FFB4D4288E6104002DDCC5 /* DishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FFB4D3288E6104002DDCC5 /* DishViewController.swift */; };
+		B7FFB4D7288E61EC002DDCC5 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B7FFB4D6288E61EC002DDCC5 /* Realm */; };
+		B7FFB4D9288E61EC002DDCC5 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7FFB4D8288E61EC002DDCC5 /* RealmSwift */; };
+		B7FFB4DB288E6714002DDCC5 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FFB4DA288E6714002DDCC5 /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,7 @@
 		B7FFB4CF288E1477002DDCC5 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B7FFB4D1288E1480002DDCC5 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		B7FFB4D3288E6104002DDCC5 /* DishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishViewController.swift; sourceTree = "<group>"; };
+		B7FFB4DA288E6714002DDCC5 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7FFB4D9288E61EC002DDCC5 /* RealmSwift in Frameworks */,
+				B7FFB4D7288E61EC002DDCC5 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +108,7 @@
 		B7A5A5C5287FBDE1000F2CA4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B7FFB4DA288E6714002DDCC5 /* Recipe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -122,6 +129,10 @@
 			dependencies = (
 			);
 			name = Mealer;
+			packageProductDependencies = (
+				B7FFB4D6288E61EC002DDCC5 /* Realm */,
+				B7FFB4D8288E61EC002DDCC5 /* RealmSwift */,
+			);
 			productName = Mealer;
 			productReference = B72AEA61287E740F0005D1AF /* Mealer.app */;
 			productType = "com.apple.product-type.application";
@@ -150,6 +161,9 @@
 				Base,
 			);
 			mainGroup = B72AEA58287E740F0005D1AF;
+			packageReferences = (
+				B7FFB4D5288E61EC002DDCC5 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = B72AEA62287E740F0005D1AF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -183,6 +197,7 @@
 				B7905B06287FC12D0014871B /* PlannerViewController.swift in Sources */,
 				B7FFB4D0288E1477002DDCC5 /* ListViewController.swift in Sources */,
 				B72AEA65287E740F0005D1AF /* AppDelegate.swift in Sources */,
+				B7FFB4DB288E6714002DDCC5 /* Recipe.swift in Sources */,
 				B7FFB4CE288E10A6002DDCC5 /* TabBarViewController.swift in Sources */,
 				B72AEA67287E740F0005D1AF /* SceneDelegate.swift in Sources */,
 			);
@@ -406,6 +421,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B7FFB4D5288E61EC002DDCC5 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B7FFB4D6288E61EC002DDCC5 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7FFB4D5288E61EC002DDCC5 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		B7FFB4D8288E61EC002DDCC5 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7FFB4D5288E61EC002DDCC5 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B72AEA59287E740F0005D1AF /* Project object */;
 }

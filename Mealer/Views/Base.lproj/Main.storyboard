@@ -17,7 +17,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2Go-xb-TTv">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="DarkBlue"/>
                         <navigationBarAppearance key="standardAppearance">
                             <color key="backgroundColor" name="MedBlue"/>
                             <textAttributes key="titleTextAttributes">
@@ -108,7 +108,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="MedBlue"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dkR-0b-7Wd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ingredientCell" id="dkR-0b-7Wd">
                                 <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dkR-0b-7Wd" id="ccg-qI-HqT">
@@ -135,9 +135,53 @@
                     <view key="view" contentMode="scaleToFill" id="nry-f9-AiL">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recipe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1u-h3-dRX">
+                                <rect key="frame" x="20" y="40" width="350" height="60"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="etn-mP-tIx">
+                                <rect key="frame" x="20" y="154" width="350" height="586"/>
+                                <color key="backgroundColor" name="MedBlue"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ktU-S0-HgP">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="350" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ktU-S0-HgP" id="cRs-J4-vu2">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INGREDIENTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36S-nw-aU0">
+                                <rect key="frame" x="20" y="120" width="350" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="CDl-VM-VZL"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="MedBlue"/>
+                        <constraints>
+                            <constraint firstItem="CDl-VM-VZL" firstAttribute="trailing" secondItem="36S-nw-aU0" secondAttribute="trailing" constant="20" id="16S-eb-3Pz"/>
+                            <constraint firstItem="36S-nw-aU0" firstAttribute="leading" secondItem="CDl-VM-VZL" secondAttribute="leading" constant="20" id="7gv-HK-05R"/>
+                            <constraint firstItem="a1u-h3-dRX" firstAttribute="top" secondItem="CDl-VM-VZL" secondAttribute="top" constant="40" id="8q5-w6-YKL"/>
+                            <constraint firstItem="36S-nw-aU0" firstAttribute="top" secondItem="a1u-h3-dRX" secondAttribute="bottom" constant="20" id="ETz-Xv-f5z"/>
+                            <constraint firstItem="etn-mP-tIx" firstAttribute="top" secondItem="36S-nw-aU0" secondAttribute="bottom" constant="10" id="GDl-hw-rlH"/>
+                            <constraint firstItem="a1u-h3-dRX" firstAttribute="leading" secondItem="CDl-VM-VZL" secondAttribute="leading" constant="20" id="Me8-xS-iCq"/>
+                            <constraint firstItem="CDl-VM-VZL" firstAttribute="bottom" secondItem="etn-mP-tIx" secondAttribute="bottom" constant="50" id="Tty-K7-9Mt"/>
+                            <constraint firstItem="CDl-VM-VZL" firstAttribute="trailing" secondItem="etn-mP-tIx" secondAttribute="trailing" constant="20" id="bXR-pG-AHL"/>
+                            <constraint firstItem="CDl-VM-VZL" firstAttribute="trailing" secondItem="a1u-h3-dRX" secondAttribute="trailing" constant="20" id="fzd-2z-00v"/>
+                            <constraint firstItem="etn-mP-tIx" firstAttribute="leading" secondItem="CDl-VM-VZL" secondAttribute="leading" constant="20" id="zjY-T1-E1j"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="name" destination="a1u-h3-dRX" id="wxo-wI-b1y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u1b-YU-xbE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,6 +197,7 @@
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="8MB-vh-glv">
                                 <rect key="frame" x="20" y="0.0" width="350" height="250"/>
+                                <color key="tintColor" name="DarkBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="7QW-tp-SGL"/>
                                 </constraints>
@@ -161,6 +206,16 @@
                                 <rect key="frame" x="0.0" y="250" width="390" height="457"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" name="MedBlue"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mealCell" id="ngZ-A0-bEY">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ngZ-A0-bEY" id="ZiV-zA-ZkB">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fcR-j2-6OY"/>
@@ -199,7 +254,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="rCf-c2-GoV">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" id="rCf-c2-GoV">
                                 <rect key="frame" x="0.0" y="88.666666030883789" width="390" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rCf-c2-GoV" id="v4z-hM-d73">
@@ -215,6 +270,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Recipes" image="book.closed.fill" catalog="system" id="0PF-N4-42L"/>
                     <connections>
+                        <outlet property="searchBar" destination="7OI-l9-ZIJ" id="HjD-BO-Tkl"/>
                         <segue destination="39Y-46-BWz" kind="presentation" identifier="recipesToDish" id="vdK-vO-3a8"/>
                     </connections>
                 </tableViewController>
@@ -231,7 +287,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" name="DarkBlue"/>
+                        <color key="selectedImageTintColor" name="DarkBlue"/>
                         <tabBarAppearance key="standardAppearance">
                             <color key="backgroundColor" name="MedBlue"/>
                         </tabBarAppearance>

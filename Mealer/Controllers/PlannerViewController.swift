@@ -17,5 +17,6 @@ class PlannerViewController: UIViewController {
         
         let tabBarVC = tabBarController as! TabBarViewController
         tabBarVC.setNavBarTitle(title: "Planner")
+        tabBarVC.navigationItem.rightBarButtonItem = nil
     }
 }
