@@ -42,7 +42,7 @@ class RecipesViewController: UITableViewController {
     // MARK: - Add Recipes
     
     @objc func addRecipe() {
-        print("add recipe pressed")
+        performSegue(withIdentifier: "recipesToAdd", sender: self)
     }
     
     // MARK: - Table View Data Source Methods
@@ -69,19 +69,28 @@ class RecipesViewController: UITableViewController {
     }
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! DishViewController
-    
-        if let indexPath = tableView.indexPathForSelectedRow {
-            tableView.deselectRow(at: indexPath, animated: true)
-            destinationVC.recipe = recipes?[indexPath.row]
+        switch segue.identifier {
+        case "recipesToDish":
+            let destinationVC = segue.destination as! DishViewController
+        
+            if let indexPath = tableView.indexPathForSelectedRow {
+                tableView.deselectRow(at: indexPath, animated: true)
+                destinationVC.recipe = recipes?[indexPath.row]
+            }
+        case "recipesToAdd":
+            let destinationVC = segue.destination as! DishChangeViewController
+            
+            destinationVC.sender = self
+        default:
+            fatalError("Identifier for segue from Recipes page not found.")
         }
+        
     }
 }
 
 // MARK: - SearchBar Delegate Methods
 
 extension RecipesViewController: UISearchBarDelegate {
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         recipes = recipes?.filter("name CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "name", ascending: true)
         tableView.reloadData()
