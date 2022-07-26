@@ -43,7 +43,7 @@ class RecipesViewController: UITableViewController {
     // MARK: - Add Recipes
     
     @objc func addRecipe() {
-        performSegue(withIdentifier: "recipesToAdd", sender: self)
+        performSegue(withIdentifier: "recipesToDish", sender: self)
     }
     
     // MARK: - Table View Data Source Methods
@@ -71,22 +71,14 @@ class RecipesViewController: UITableViewController {
     }
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "recipesToDish":
-            let destinationVC = segue.destination as! DishViewController
+        let destinationVC = segue.destination as! DishViewController
         
-            if let indexPath = tableView.indexPathForSelectedRow {
-                tableView.deselectRow(at: indexPath, animated: true)
-                destinationVC.recipe = recipes?[indexPath.row]
-            }
-        case "recipesToAdd":
-            let destinationVC = segue.destination as! DishChangeViewController
-            
-            destinationVC.sender = self
-        default:
-            fatalError("Identifier for segue from Recipes page not found.")
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+            destinationVC.recipe = recipes?[indexPath.row]
         }
         
+        destinationVC.sender = self
     }
 }
 
