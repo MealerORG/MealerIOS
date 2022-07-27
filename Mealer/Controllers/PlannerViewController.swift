@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import SwipeCellKit
 
 class PlannerViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -14,6 +15,7 @@ class PlannerViewController: UIViewController {
     
     let realm = try! Realm()
     var day = Day()
+    let nilRecipe = "[NOT SET]"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,38 +75,33 @@ extension PlannerViewController: UITableViewDataSource {
         return 1
     }
     
+    func getRecipe(section: Int) -> Recipe? {
+        switch section {
+        case 0:
+            return day.breakfast
+        case 1:
+            return day.lunch
+        case 2:
+            return day.dinner
+        default:
+            return nil
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "mealCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mealCell", for: indexPath) as! SwipeTableViewCell
+        cell.delegate = self
         
         var config = cell.defaultContentConfiguration()
-        
-        switch indexPath.section {
-        case 0:
-            config.text = day.breakfast?.name ?? "[NOT SET]"
-        case 1:
-            config.text = day.lunch?.name ?? "[NOT SET]"
-        case 2:
-            config.text = day.dinner?.name ?? "[NOT SET]"
-        default:
-            print("error: section not found")
-        }
-        
+        config.text = getRecipe(section: indexPath.section)?.name ?? nilRecipe
         cell.contentConfiguration = config
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return "BREAKFAST"
-        case 1:
-            return "LUNCH"
-        case 2:
-            return "DINNER"
-        default:
-            return nil
-        }
+        let names = ["BREAKFAST", "LUNCH", "DINNER"]
+        return names[section]
     }
 }
 
@@ -112,6 +109,38 @@ extension PlannerViewController: UITableViewDataSource {
 
 extension PlannerViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        if getRecipe(section: indexPath.section) != nil {
+            performSegue(withIdentifier: "plannerToDish", sender: self)
+        } else {
+            // edit
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dishVC = segue.destination as! DishViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+            dishVC.recipe = getRecipe(section: indexPath.section)!
+            dishVC.sender = self
+        }
+    }
+}
+
+// MARK: - Swipe Table View Cell Delegate
+
+extension PlannerViewController: SwipeTableViewCellDelegate {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+
+        let deleteAction = SwipeAction(style: .default, title: nil) { action, indexPath in
+            // edit
+        }
+        
+        // customize the action appearance
+        deleteAction.image = UIImage(systemName: "pencil")
+        deleteAction.backgroundColor = UIColor(named: "DarkBlue")
+
+        return [deleteAction]
     }
 }

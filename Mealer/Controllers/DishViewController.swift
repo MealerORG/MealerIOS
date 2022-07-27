@@ -12,6 +12,8 @@ import SwipeCellKit
 class DishViewController: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var ingredientsTable: UITableView!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var ingredientAddButton: UIButton!
     
     let realm = try! Realm()
     var recipe: Recipe?
@@ -40,6 +42,14 @@ class DishViewController: UIViewController {
             }
         } else {
             nameField.text = recipe!.name
+        }
+        
+        // if coming from planner VC, disable modification abilities
+        if let _ = sender as? PlannerViewController {
+            deleteButton.isHidden = true
+            ingredientAddButton.isHidden = true
+            nameField.isEnabled = false
+            ingredientsTable.allowsSelection = false
         }
     }
     

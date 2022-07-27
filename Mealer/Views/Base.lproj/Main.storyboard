@@ -151,7 +151,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" name="MedBlue"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mealCell" id="ngZ-A0-bEY">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mealCell" id="ngZ-A0-bEY" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ngZ-A0-bEY" id="ZiV-zA-ZkB">
@@ -342,6 +342,8 @@
                     <navigationItem key="navigationItem" id="Vbk-HC-7pA"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="deleteButton" destination="eq2-LI-l7a" id="4SI-TJ-PqO"/>
+                        <outlet property="ingredientAddButton" destination="R7m-Fv-5mp" id="bF1-rG-TbW"/>
                         <outlet property="ingredientsTable" destination="TLm-Be-RQv" id="F0E-lx-3Ra"/>
                         <outlet property="nameField" destination="gI1-vt-kz8" id="2TC-x9-EV4"/>
                     </connections>
