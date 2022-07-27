@@ -195,7 +195,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="recipeCell" id="rCf-c2-GoV" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="recipeCell" id="rCf-c2-GoV">
                                 <rect key="frame" x="0.0" y="88.666666030883789" width="390" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rCf-c2-GoV" id="v4z-hM-d73">
@@ -259,7 +259,17 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="submitPressed:" destination="aa6-O2-bip" eventType="touchUpInside" id="JbX-9y-ceZ"/>
+                                    <action selector="donePressed:" destination="aa6-O2-bip" eventType="touchUpInside" id="nQx-i2-Mwq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eq2-LI-l7a">
+                                <rect key="frame" x="336.33333333333331" y="15.000000000000004" width="43.666666666666686" height="39.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="Ma6-kv-YuY"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="plain" image="trash.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="deletePressed:" destination="aa6-O2-bip" eventType="touchUpInside" id="9HP-Zc-Nkh"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Recipe Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gI1-vt-kz8">
@@ -276,14 +286,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eq2-LI-l7a">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7m-Fv-5mp">
                                         <rect key="frame" x="330" y="0.0" width="20" height="30.666666666666668"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="Ma6-kv-YuY"/>
+                                            <constraint firstAttribute="width" constant="20" id="0XS-mM-ZxN"/>
                                         </constraints>
                                         <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
                                         <connections>
-                                            <action selector="addIngredient:" destination="aa6-O2-bip" eventType="touchUpInside" id="x4G-dp-brT"/>
+                                            <action selector="addIngredient:" destination="aa6-O2-bip" eventType="touchUpInside" id="g5C-S6-4KT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -292,7 +302,7 @@
                                 <rect key="frame" x="20" y="182.66666666666669" width="350" height="597.33333333333326"/>
                                 <color key="backgroundColor" name="MedBlue"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DishChangeIngredientCell" id="a3H-q5-DRs" customClass="IngredientTableViewCell" customModule="Mealer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DishIngredientCell" id="a3H-q5-DRs" customClass="IngredientTableViewCell" customModule="Mealer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a3H-q5-DRs" id="Yzm-5n-5Rf">
@@ -312,11 +322,14 @@
                             <constraint firstItem="hkw-cf-PcT" firstAttribute="top" secondItem="ojz-5u-l2n" secondAttribute="top" constant="20" id="ELK-hD-1hG"/>
                             <constraint firstItem="ojz-5u-l2n" firstAttribute="trailing" secondItem="TLm-Be-RQv" secondAttribute="trailing" constant="20" id="FlG-ax-gPO"/>
                             <constraint firstItem="TLm-Be-RQv" firstAttribute="top" secondItem="4pv-th-zWX" secondAttribute="bottom" constant="10" id="HRj-xH-mSd"/>
+                            <constraint firstItem="eq2-LI-l7a" firstAttribute="top" secondItem="ojz-5u-l2n" secondAttribute="top" constant="15" id="NoF-v8-3SX"/>
                             <constraint firstItem="4pv-th-zWX" firstAttribute="leading" secondItem="ojz-5u-l2n" secondAttribute="leading" constant="20" id="PFA-O2-Yto"/>
+                            <constraint firstItem="gI1-vt-kz8" firstAttribute="top" secondItem="eq2-LI-l7a" secondAttribute="bottom" constant="10" id="Tgd-qp-z2w"/>
                             <constraint firstItem="gI1-vt-kz8" firstAttribute="leading" secondItem="ojz-5u-l2n" secondAttribute="leading" constant="20" id="Wqp-fu-kIZ"/>
                             <constraint firstItem="4pv-th-zWX" firstAttribute="top" secondItem="gI1-vt-kz8" secondAttribute="bottom" constant="20" id="g9T-gY-T7o"/>
                             <constraint firstItem="ojz-5u-l2n" firstAttribute="bottom" secondItem="TLm-Be-RQv" secondAttribute="bottom" constant="10" id="kIU-IU-3Ir"/>
                             <constraint firstItem="TLm-Be-RQv" firstAttribute="leading" secondItem="ojz-5u-l2n" secondAttribute="leading" constant="20" id="lzr-5G-zAF"/>
+                            <constraint firstItem="ojz-5u-l2n" firstAttribute="trailing" secondItem="eq2-LI-l7a" secondAttribute="trailing" constant="10" id="qgg-5M-8MC"/>
                             <constraint firstItem="hkw-cf-PcT" firstAttribute="leading" secondItem="ojz-5u-l2n" secondAttribute="leading" constant="10" id="vJZ-bE-3WK"/>
                             <constraint firstItem="ojz-5u-l2n" firstAttribute="trailing" secondItem="4pv-th-zWX" secondAttribute="trailing" constant="20" id="zOo-P1-iSm"/>
                         </constraints>
@@ -342,6 +355,7 @@
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
         <namedColor name="DarkBlue">
             <color red="0.25882352941176473" green="0.49019607843137253" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

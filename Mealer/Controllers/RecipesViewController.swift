@@ -53,8 +53,7 @@ class RecipesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! SwipeTableViewCell
-        cell.delegate = self
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath)
         
         // set cell name
         var config = cell.defaultContentConfiguration()
@@ -98,34 +97,5 @@ extension RecipesViewController: UISearchBarDelegate {
                 searchBar.resignFirstResponder()
             }
         }
-    }
-}
-
-// MARK: - Swipe Table View Delegate Methods
-
-extension RecipesViewController: SwipeTableViewCellDelegate {
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        guard orientation == .right else { return nil }
-
-        let deleteAction = SwipeAction(style: .destructive, title: nil) { action, indexPath in
-            do {
-                try self.realm.write {
-                    self.realm.delete(self.recipes![indexPath.row])
-                }
-            } catch {
-                print(error)
-            }
-        }
-
-        // customize the action appearance
-        deleteAction.image = UIImage(systemName: "trash.fill")
-
-        return [deleteAction]
-    }
-    
-    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
-        var options = SwipeOptions()
-        options.expansionStyle = .destructive
-        return options
     }
 }

@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class IngredientTableViewCell: UITableViewCell {
+class IngredientTableViewCell: SwipeTableViewCell {
     @IBOutlet weak var ingredient: UILabel!
     @IBOutlet weak var quantity: UILabel!
 }
