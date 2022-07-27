@@ -126,7 +126,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVm-Jx-Kls" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1768" y="-450"/>
+            <point key="canvasLocation" x="1811" y="-614"/>
         </scene>
         <!--Planner-->
         <scene sceneID="1UT-Gv-Bul">
@@ -142,6 +142,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="7QW-tp-SGL"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="dateChanged:" destination="51b-Ae-Xgc" eventType="valueChanged" id="buQ-Eq-9n8"/>
+                                </connections>
                             </datePicker>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-4k-hoc">
                                 <rect key="frame" x="0.0" y="250" width="390" height="457"/>
@@ -174,6 +177,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Planner" image="calendar" catalog="system" id="4Og-lq-tht"/>
                     <connections>
+                        <outlet property="datePicker" destination="8MB-vh-glv" id="M7P-fE-Ago"/>
+                        <outlet property="tableView" destination="LBL-4k-hoc" id="gZl-qI-mR6"/>
                         <segue destination="aa6-O2-bip" kind="presentation" identifier="plannerToDish" id="Ck7-gG-3DP"/>
                     </connections>
                 </viewController>
@@ -347,7 +352,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aVc-KG-1nG"/>
+        <segue reference="Ck7-gG-3DP"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="MealerLogo" width="1495.3333740234375" height="341.33334350585938"/>

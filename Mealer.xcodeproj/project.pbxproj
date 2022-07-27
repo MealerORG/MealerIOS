@@ -18,6 +18,7 @@
 		B7A01BDD288F92EA00256AF0 /* IngredientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7A01BDB288F92EA00256AF0 /* IngredientTableViewCell.xib */; };
 		B7A01BDF288FB3F000256AF0 /* DishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A01BDE288FB3F000256AF0 /* DishViewController.swift */; };
 		B7A01BE2288FC94B00256AF0 /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7A01BE1288FC94B00256AF0 /* SwipeCellKit */; };
+		B7A01BE42891064700256AF0 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A01BE32891064700256AF0 /* Day.swift */; };
 		B7FFB4CE288E10A6002DDCC5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FFB4CD288E10A6002DDCC5 /* TabBarViewController.swift */; };
 		B7FFB4D0288E1477002DDCC5 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FFB4CF288E1477002DDCC5 /* ListViewController.swift */; };
 		B7FFB4D2288E1480002DDCC5 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FFB4D1288E1480002DDCC5 /* RecipesViewController.swift */; };
@@ -39,6 +40,7 @@
 		B7A01BDA288F92EA00256AF0 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		B7A01BDB288F92EA00256AF0 /* IngredientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientTableViewCell.xib; sourceTree = "<group>"; };
 		B7A01BDE288FB3F000256AF0 /* DishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishViewController.swift; sourceTree = "<group>"; };
+		B7A01BE32891064700256AF0 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		B7FFB4CD288E10A6002DDCC5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B7FFB4CF288E1477002DDCC5 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B7FFB4D1288E1480002DDCC5 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				B7FFB4DA288E6714002DDCC5 /* Recipe.swift */,
+				B7A01BE32891064700256AF0 /* Day.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				B72AEA69287E740F0005D1AF /* WelcomeViewController.swift in Sources */,
 				B7FFB4D2288E1480002DDCC5 /* RecipesViewController.swift in Sources */,
 				B7A01BDF288FB3F000256AF0 /* DishViewController.swift in Sources */,
+				B7A01BE42891064700256AF0 /* Day.swift in Sources */,
 				B7905B06287FC12D0014871B /* PlannerViewController.swift in Sources */,
 				B7FFB4D0288E1477002DDCC5 /* ListViewController.swift in Sources */,
 				B72AEA65287E740F0005D1AF /* AppDelegate.swift in Sources */,
