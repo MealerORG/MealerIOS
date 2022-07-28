@@ -13,6 +13,9 @@ class RecipesViewController: UITableViewController {
     let realm = try! Realm()
     var recipes: Results<Recipe>?
     
+    var sender: UIViewController?
+    var section: Int?
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
@@ -28,9 +31,10 @@ class RecipesViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let tabBarVC = tabBarController as! TabBarViewController
-        tabBarVC.setNavBarTitle(title: "Recipes")
-        tabBarVC.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addRecipe))
+        if let tabBarVC = tabBarController as? TabBarViewController {
+            tabBarVC.setNavBarTitle(title: "Recipes")
+            tabBarVC.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addRecipe))
+        }
     }
     
     // MARK: - Load Recipes
@@ -60,13 +64,40 @@ class RecipesViewController: UITableViewController {
         config.text = recipes?[indexPath.row].name ?? ""
         cell.contentConfiguration = config
         
+        if let _ = sender as? PlannerViewController {
+            cell.accessoryType = .none
+        }
+        
         return cell
     }
     
     // MARK: - Table View Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "recipesToDish", sender: self)
+        if let sender = sender as? PlannerViewController {
+            dismiss(animated: true) {
+                do {
+                    try sender.realm.write {
+                        switch self.section {
+                        case 0:
+                            sender.day.breakfast = self.recipes?[indexPath.row]
+                        case 1:
+                            sender.day.lunch = self.recipes?[indexPath.row]
+                        case 2:
+                            sender.day.dinner = self.recipes?[indexPath.row]
+                        default:
+                            print("error: section is incorrect")
+                        }
+                    }
+                } catch {
+                    print(error)
+                }
+                
+                sender.tableView.reloadData()
+            }
+        } else {
+            performSegue(withIdentifier: "recipesToDish", sender: self)
+        }
     }
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

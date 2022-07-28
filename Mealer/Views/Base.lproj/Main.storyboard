@@ -180,18 +180,19 @@
                         <outlet property="datePicker" destination="8MB-vh-glv" id="M7P-fE-Ago"/>
                         <outlet property="tableView" destination="LBL-4k-hoc" id="gZl-qI-mR6"/>
                         <segue destination="aa6-O2-bip" kind="presentation" identifier="plannerToDish" id="Ck7-gG-3DP"/>
+                        <segue destination="C62-Sf-cbM" kind="presentation" identifier="plannerToRecipes" id="QYg-yu-t1z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOi-OT-IEJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2615" y="96"/>
+            <point key="canvasLocation" x="3275" y="96"/>
         </scene>
         <!--Recipes-->
         <scene sceneID="Oqf-ls-fbB">
             <objects>
                 <tableViewController id="C62-Sf-cbM" customClass="RecipesViewController" customModule="Mealer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="gru-kB-0XV">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="MedBlue"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="7OI-l9-ZIJ">
@@ -350,11 +351,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOm-i8-XyS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3981.5384615384614" y="455.68720379146919"/>
+            <point key="canvasLocation" x="3992" y="850"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ck7-gG-3DP"/>
+        <segue reference="aVc-KG-1nG"/>
+        <segue reference="QYg-yu-t1z"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="MealerLogo" width="1495.3333740234375" height="341.33334350585938"/>

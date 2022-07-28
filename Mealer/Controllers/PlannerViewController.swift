@@ -112,18 +112,32 @@ extension PlannerViewController: UITableViewDelegate {
         if getRecipe(section: indexPath.section) != nil {
             performSegue(withIdentifier: "plannerToDish", sender: self)
         } else {
-            // edit
+            performSegue(withIdentifier: "plannerToRecipes", sender: self)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dishVC = segue.destination as! DishViewController
-        
-        if let indexPath = tableView.indexPathForSelectedRow {
-            tableView.deselectRow(at: indexPath, animated: true)
-            dishVC.recipe = getRecipe(section: indexPath.section)!
-            dishVC.sender = self
+        switch segue.identifier {
+        case "plannerToDish":
+            let dishVC = segue.destination as! DishViewController
+            
+            if let indexPath = tableView.indexPathForSelectedRow {
+                tableView.deselectRow(at: indexPath, animated: true)
+                dishVC.recipe = getRecipe(section: indexPath.section)!
+                dishVC.sender = self
+            }
+        case "plannerToRecipes":
+            let dishVC = segue.destination as! RecipesViewController
+            
+            if let indexPath = tableView.indexPathForSelectedRow {
+                tableView.deselectRow(at: indexPath, animated: true)
+                dishVC.sender = self
+                dishVC.section = indexPath.section
+            }
+        default:
+            print("error: segue indentifier not found")
         }
+        
     }
 }
 
@@ -133,14 +147,15 @@ extension PlannerViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
 
-        let deleteAction = SwipeAction(style: .default, title: nil) { action, indexPath in
-            // edit
+        let editAction = SwipeAction(style: .default, title: nil) { action, indexPath in
+            self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none) // so prepare function can know which recipe to change
+            self.performSegue(withIdentifier: "plannerToRecipes", sender: self)
         }
         
         // customize the action appearance
-        deleteAction.image = UIImage(systemName: "pencil")
-        deleteAction.backgroundColor = UIColor(named: "DarkBlue")
+        editAction.image = UIImage(systemName: "pencil")
+        editAction.backgroundColor = UIColor(named: "DarkBlue")
 
-        return [deleteAction]
+        return [editAction]
     }
 }
